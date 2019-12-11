@@ -1,4 +1,4 @@
-package com.zjb.model;
+package com.zjb.licenses.model;
 
 public class Organization {
     String id;
