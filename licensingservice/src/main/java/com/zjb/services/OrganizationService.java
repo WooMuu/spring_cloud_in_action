@@ -1,4 +1,4 @@
-package com.zjb.licenses.services;
+package com.zjb.services;
 
 import org.springframework.stereotype.Service;
 

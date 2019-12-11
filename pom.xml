@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>licensingservice</module>
+        <module>configsvr</module>
     </modules>
     <packaging>pom</packaging>
 
