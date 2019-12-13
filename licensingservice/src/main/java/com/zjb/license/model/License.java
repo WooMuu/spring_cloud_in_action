@@ -1,4 +1,4 @@
-package com.zjb.model;
+package com.zjb.license.model;
 
 
 import javax.persistence.Column;

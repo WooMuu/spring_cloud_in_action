@@ -5,3 +5,5 @@ spring:
     password: root
   jpa:
     show-sql: true
+server:
+  port: 8081

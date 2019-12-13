@@ -10,6 +10,8 @@
     <modules>
         <module>licensingservice</module>
         <module>configsvr</module>
+        <module>eurekasvr</module>
+        <module>organization</module>
     </modules>
     <packaging>pom</packaging>
 

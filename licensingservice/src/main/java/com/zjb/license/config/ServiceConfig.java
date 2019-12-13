@@ -1,4 +1,4 @@
-package com.zjb.config;
+package com.zjb.license.config;
 
 import org.springframework.beans.factory.annotation.Value;
 

@@ -1,10 +1,27 @@
-package com.zjb.model;
+package com.zjb.organization.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "organization")
 public class Organization {
+    @Id
+    @Column(name = "organization_id", nullable = false)
     String id;
+
+    @Column(name = "organization_name", nullable = false)
     String name;
+
+    @Column(name = "contactName", nullable = true)
     String contactName;
+
+    @Column(name = "contactEmail", nullable = true)
     String contactEmail;
+
+    @Column(name = "contactPhone", nullable = true)
     String contactPhone;
 
 

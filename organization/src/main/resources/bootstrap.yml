@@ -1,16 +1,15 @@
 spring:
   application:
-    name: licensingservice
+    name: organizationservice
   profiles:
     active: default
-      #############     到哪里查找配置中心  #####################
+       #############     到哪里查找配置中心  #####################
   cloud:
     config:
       discovery:
         enabled: true
         service-id: config-server
-
-        #############     注册为Eureka服务  #####################
+ #############     注册为Eureka服务  #####################
 eureka:
   instance:
     prefer-ip-address: true #注册服务的IP而不是服务器名称

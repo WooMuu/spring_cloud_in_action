@@ -1,7 +1,7 @@
-package com.zjb.controllers;
+package com.zjb.license.controllers;
 
-import com.zjb.model.License;
-import com.zjb.services.LicenseService;
+import com.zjb.license.model.License;
+import com.zjb.license.services.LicenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -40,9 +40,15 @@ public class LicenseServiceController {
         licenseService.saveLicense(license);
     }
 
-    @RequestMapping(value = "{licenseId}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "{licenseId}/{clientType}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public String deleteLicenses(@PathVariable("licenseId") String licenseId) {
         return String.format("This is the Delete");
     }
+
+    @GetMapping(value = "/{licenseId}/{clientType}")
+    public License getLicenseWithClientType(@PathVariable("licenseId") String licenseId, @PathVariable("organizationId") String organizationId, @PathVariable("clientType") String clientType) {
+        return licenseService.getLicense(organizationId, licenseId, clientType);
+    }
+
 }

@@ -1,6 +1,6 @@
-package com.zjb.repository;
+package com.zjb.license.repository;
 
-import com.zjb.model.License;
+import com.zjb.license.model.License;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
