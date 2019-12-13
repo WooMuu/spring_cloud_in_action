@@ -1,5 +1,6 @@
 package com.zjb.license.services;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.zjb.license.clients.OrganizationDiscoveryClient;
 import com.zjb.license.clients.OrganizationFeignClient;
 import com.zjb.license.clients.OrganizationRestClient;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 @Service
@@ -34,7 +36,23 @@ public class LicenseService {
         return null;
     }
 
+    private void randomlyRunLong() {
+        Random random = new Random();
+        int randomNum = random.nextInt((3 - 1) + 1) + 1;
+        if (randomNum == 3) sleep();
+    }
+
+    private void sleep() {
+        try {
+            Thread.sleep(11000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @HystrixCommand
     public List<License> getLicensesByOrg(String organizationId) {
+        randomlyRunLong();
         return licenseRepository.findByOrganizationId(organizationId);
     }
 

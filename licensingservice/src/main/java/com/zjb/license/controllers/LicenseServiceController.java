@@ -17,7 +17,7 @@ public class LicenseServiceController {
 //    @Autowired
 //    private ServiceConfig serviceConfig;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/byorg", method = RequestMethod.GET)
     public List<License> getLicenses(@PathVariable("organizationId") String organizationId) {
 
         return licenseService.getLicensesByOrg(organizationId);
