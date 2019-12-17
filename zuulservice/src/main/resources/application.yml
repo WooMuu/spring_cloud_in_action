@@ -1,0 +1,36 @@
+server:
+  port: 5555
+##########将服务注册到eureka    start    ##########
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+##########将服务注册到eureka    end    ##########
+
+##########通过服务发现手劢映射路由   start   ##########
+zuul:
+  prefix: /api  #所有定义的服务将以/api为前缀
+  routes:
+    licensestatic:
+      path: /licensestatic/**
+      url: http://localhost:8081  #模拟已经建立的静态的license服务，它将直接被调用，而不是由zuul经过Eureka
+
+    licensestaticrebbon:
+      path: /licensestaticrebbon/**
+      serviceId: licensestaticrebbon #定义一个服务Id,用于在ribbon中查找服务
+
+    licensingservice: /license/**
+  ignored-services: 'licensingservice' #排除自动映射的Eureka服务，用逗号分隔，如果排除所有Ereka的自动路由用*
+##########通过服务发现手劢映射路由   end   ##########
+
+ribbon:
+  eureka:
+    enabled: false #禁用ribbon中的Eureka支持,这将禁用所有的基于Eureka的自动路由
+
+licensestaticrebbon:
+  ribbon:
+    listOfServers: http://localhost:8081  #请求路由到服务器列表,用逗号隔开

@@ -12,6 +12,7 @@
         <module>configsvr</module>
         <module>eurekasvr</module>
         <module>organization</module>
+        <module>zuulservice</module>
     </modules>
     <packaging>pom</packaging>
 
