@@ -1,4 +1,4 @@
-package com.zjb;
+package com.zjb.zuulservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

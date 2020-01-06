@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -14,12 +15,8 @@ public class LicenseServiceController {
     @Autowired
     private LicenseService licenseService;
 
-//    @Autowired
-//    private ServiceConfig serviceConfig;
-
     @RequestMapping(value = "/byorg", method = RequestMethod.GET)
-    public List<License> getLicenses(@PathVariable("organizationId") String organizationId) {
-
+    public List<License> getLicenses(@PathVariable("organizationId") String organizationId, HttpServletRequest request) {
         return licenseService.getLicensesByOrg(organizationId);
     }
 
