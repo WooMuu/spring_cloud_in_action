@@ -19,16 +19,22 @@ zuul:
 #      stripPrefix: false  #如果zuul了定义了全局的prefix，stripPrefix=false时，forward的URL将会带上prefix
     specialroutesservice: /special/**
     organizationservice: /organizationservice/**
-  retryable: true # 请求失败时 Ribbon client自动重试
+#  retryable: true # 请求失败时 Ribbon client自动重试
   ignored-services: '*' #除了routes下定义的服务，其他的全部忽略不解析
 #  ignored-patterns: /**/admin/**  # calls including /admin/ do not resolve.
   sensitiveHeaders: #设置为空，允许headers在headers在下游服务间共享，但不包含ignored headers
+  host: #与ribbon.ConnectTimeout和ribbon.ReadTimeout设置类似，但控制的是非服务发现的方式设置路由映射时，代理客户端向各个服务发送请求连接超时和通讯超时时间
+    connect-timeout-millis: 3000
+    socket-timeout-millis: 13000 #13s 如果有上传大图片时，可适当把这个值调大
+  servlet-path: /zuul #当上传大文件，或者不希望对请求做解码或解析（不走dispatcherservlet）时，需要加的请求prefix，默认是zuul，可以用这个参数设置
+  ribbon:
+    eager-load: #Ribbon clients will be eager-loaded ,如果不配置这个参数，Ribbon clients are lazily loaded by Spring Cloud on first call
+      enabled: true
 
-
-hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 25000 #25s
 ribbon:
   ConnectTimeout: 3000
-  ReadTimeout: 60000
+  ReadTimeout: 13000 #13s 如果有上传大图片时，可适当把这个值调大
 
 
 

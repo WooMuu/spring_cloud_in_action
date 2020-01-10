@@ -99,6 +99,9 @@ public class RouteFilter extends ZuulFilter {
         } catch (HttpClientErrorException e) {
             if (e.getStatusCode() == HttpStatus.NOT_FOUND) return null;
             throw e;
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+            return null;
         }
         return abTestRoute.getBody();
     }
