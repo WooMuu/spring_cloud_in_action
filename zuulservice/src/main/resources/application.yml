@@ -31,7 +31,7 @@ zuul:
     eager-load: #Ribbon clients will be eager-loaded ,如果不配置这个参数，Ribbon clients are lazily loaded by Spring Cloud on first call
       enabled: true
 
-hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 25000 #25s
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 33000 #33s
 ribbon:
   ConnectTimeout: 3000
   ReadTimeout: 13000 #13s 如果有上传大图片时，可适当把这个值调大

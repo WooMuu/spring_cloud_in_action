@@ -1,5 +1,6 @@
 package com.zjb.zuulservice;
 
+import com.zjb.specialroutes.utils.UserContextFilter;
 import com.zjb.specialroutes.utils.UserContextInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.Filter;
 import java.util.Collections;
 import java.util.List;
 
@@ -18,6 +20,11 @@ public class ZuulserviceApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ZuulserviceApplication.class, args);
+    }
+
+    @Bean
+    public Filter userContextfilter() {
+        return new UserContextFilter();
     }
 
     @Bean

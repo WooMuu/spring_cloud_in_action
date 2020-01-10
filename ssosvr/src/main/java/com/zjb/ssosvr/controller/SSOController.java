@@ -14,7 +14,7 @@ import java.util.Map;
 @RestController
 public class SSOController {
 
-    @RequestMapping(value = "/user", produces = "application/json")
+    @RequestMapping(value = {"/user"}, produces = "application/json")
     public Map<String, Object> user(OAuth2Authentication user) {
         HashMap<String, Object> userInfo = new HashMap<>();
         userInfo.put("user", user.getUserAuthentication().getPrincipal());

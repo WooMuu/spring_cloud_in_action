@@ -9,6 +9,7 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.Filter;
@@ -18,6 +19,7 @@ import java.util.List;
 @SpringBootApplication
 @EnableDiscoveryClient
 @RefreshScope
+@EnableResourceServer //表示受OAuth2服务保护的服务
 public class OrganizationApplication {
 
     public static void main(String[] args) {

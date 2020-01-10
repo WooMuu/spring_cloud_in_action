@@ -5,7 +5,7 @@ package com.zjb.specialroutes.utils;
  */
 public class UserContext {
     public static final String CORRELATION_ID = "zjb-correlation-id";
-    public static final String AUTH_TOKEN = "zjb-auth-token";
+    public static final String AUTH_TOKEN = "Authorization";
     public static final String USER_ID = "zjb-user-id";
     public static final String ORG_ID = "zjb-org-id";
 
