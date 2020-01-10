@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "v1/organizations/{organizationId}/licenses")
+@RequestMapping(value = "/{organizationId}/licenses")
 public class LicenseServiceController {
     @Autowired
     private LicenseService licenseService;

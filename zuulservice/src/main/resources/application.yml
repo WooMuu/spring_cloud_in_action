@@ -13,9 +13,23 @@ eureka:
 
 ##########通过服务发现手劢映射路由   start   ##########
 zuul:
-  prefix: /api  #所有定义的服务将以/api为前缀
-  routes:
+#  prefix: /api  #所有定义的服务将以/api为前缀
+  routes:  #YML文件配置的路由映射在解析时有先后顺序，而properties文件则没有
     licensingservice: /license/**
+#      stripPrefix: false  #如果zuul了定义了全局的prefix，stripPrefix=false时，forward的URL将会带上prefix
+    specialroutesservice: /special/**
+    organizationservice: /organizationservice/**
+  retryable: true # 请求失败时 Ribbon client自动重试
+  ignored-services: '*' #除了routes下定义的服务，其他的全部忽略不解析
+#  ignored-patterns: /**/admin/**  # calls including /admin/ do not resolve.
+  sensitiveHeaders: #设置为空，允许headers在headers在下游服务间共享，但不包含ignored headers
+
+
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 60000
+
 
 
 

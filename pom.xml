@@ -13,6 +13,8 @@
         <module>eurekasvr</module>
         <module>organization</module>
         <module>zuulservice</module>
+        <module>specialroutes-service</module>
+        <module>utils</module>
     </modules>
     <packaging>pom</packaging>
 

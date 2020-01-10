@@ -1,7 +1,8 @@
-package com.zjb.utils;
+package com.zjb.specialroutes.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import java.io.IOException;
 /**
  * Created by zjb on 2019/12/19.
  */
+@Component
 public class UserContextFilter implements Filter {
 
     private static final Logger logger = LoggerFactory.getLogger(UserContextFilter.class);

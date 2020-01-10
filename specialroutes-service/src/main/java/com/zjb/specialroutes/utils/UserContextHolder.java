@@ -1,4 +1,4 @@
-package com.zjb.utils;
+package com.zjb.specialroutes.utils;
 
 import org.springframework.util.Assert;
 

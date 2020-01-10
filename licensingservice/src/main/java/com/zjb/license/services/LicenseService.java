@@ -35,7 +35,7 @@ public class LicenseService {
     public License getLicense(String organizationId, String licenseId) {
         License license = licenseRepository.findByOrganizationIdAndLicenseId(organizationId, licenseId);
 //        return license.withComment(config.getExampleProperty());
-        return null;
+        return license;
     }
 
     public static void randomlyRunLong() {

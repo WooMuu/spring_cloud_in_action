@@ -1,4 +1,4 @@
-package com.zjb.utils;
+package com.zjb.specialroutes.utils;
 
 /**
  * Created by zjb on 2019/12/19.
