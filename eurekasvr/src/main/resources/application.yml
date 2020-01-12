@@ -1,5 +1,13 @@
 server:
   port: 8761
+
+#setting the logging level
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.zjb: DEBUG
+    
 eureka:
   client:
     fetch-registry: false  # 不在Eureka服务注册

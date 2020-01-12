@@ -1,5 +1,12 @@
 server:
   port: 5555
+##########seting logging level    ##########
+logging:
+    level:
+      com.netflix: WARN
+      org.springframework.web: WARN
+      com.zjb: DEBUG
+
 ##########将服务注册到eureka    start    ##########
 eureka:
   instance:

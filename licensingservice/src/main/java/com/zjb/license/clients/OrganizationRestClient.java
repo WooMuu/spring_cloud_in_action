@@ -19,7 +19,7 @@ public class OrganizationRestClient {
 
     public Organization getOrganization(String organizationId) {
         ResponseEntity<Organization> restExchange = restTemplate.
-                exchange("http://organizationservice/v1/organizations/{organizationId}",
+                exchange("http://organizationservice/organizations/{organizationId}",
                         HttpMethod.GET, null, Organization.class, organizationId);
 
         return restExchange.getBody();

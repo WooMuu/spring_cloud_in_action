@@ -1,2 +1,8 @@
 server:
   port: 8901
+  ##########seting logging level    ##########
+logging:
+    level:
+      com.netflix: WARN
+      org.springframework.web: WARN
+      com.zjb: DEBUG
