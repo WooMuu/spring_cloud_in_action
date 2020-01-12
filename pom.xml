@@ -15,6 +15,7 @@
         <module>zuulservice</module>
         <module>specialroutes-service</module>
         <module>utils</module>
+        <module>ssosvr</module>
     </modules>
     <packaging>pom</packaging>
 

@@ -1,4 +1,4 @@
-package com.zjb.ssosvr.config;
+package com.zjb.ssosvr.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
