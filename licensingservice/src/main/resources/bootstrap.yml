@@ -20,7 +20,7 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/ # Eureka服务的位置
 
-security:
-  oauth2:
-    resource:
-      user-info-uri: http://localhost:8901/user
+#security:
+#  oauth2:
+#    resource:
+#      user-info-uri: http://localhost:8901/user

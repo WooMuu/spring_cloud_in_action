@@ -1,7 +1,7 @@
 package com.zjb.organization;
 
-import com.zjb.specialroutes.utils.UserContextFilter;
-import com.zjb.specialroutes.utils.UserContextInterceptor;
+import com.zjb.organization.utils.UserContextFilter;
+import com.zjb.organization.utils.UserContextInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;

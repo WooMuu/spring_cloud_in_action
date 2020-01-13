@@ -4,8 +4,8 @@ server:
 #setting the logging level
 logging:
   level:
-    com.netflix: WARN
-    org.springframework.web: WARN
+    com.netflix: DEBUG
+    org.springframework.web: DEBUG
     com.zjb: DEBUG
 
 spring:
@@ -19,3 +19,6 @@ spring:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+signning:
+  key: 223342s

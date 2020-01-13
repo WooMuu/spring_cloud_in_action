@@ -1,4 +1,4 @@
-package com.zjb.license.config;
+package com.zjb.organization.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
