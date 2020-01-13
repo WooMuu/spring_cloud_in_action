@@ -43,6 +43,9 @@ ribbon:
   ConnectTimeout: 3000
   ReadTimeout: 13000 #13s 如果有上传大图片时，可适当把这个值调大
 
+signning:
+  key: 223342s
+
 
 
 

@@ -12,7 +12,7 @@ import java.util.Map;
 public class FilterUtils {
 
     public static final String CORRELATION_ID = "zjb-correlation-id";
-    public static final String AUTH_TOKEN = "zjb-auth-token";
+    public static final String AUTH_TOKEN = "Authorization";
     public static final String USER_ID = "zjb-user-id";
     public static final String ORG_ID = "zjb-org-id";
 
@@ -40,5 +40,15 @@ public class FilterUtils {
         if (ctx.get("serviceId") == null) return "";
         //We might not have a service id if we are using a static, non-eureka route.
         return ctx.get("serviceId").toString();
+    }
+
+    public String getAuthToken() {
+        RequestContext ctx = RequestContext.getCurrentContext();
+        if (ctx.getRequest().getHeader(AUTH_TOKEN) != null) {
+            return ctx.getRequest().getHeader(AUTH_TOKEN);
+        }
+        Map<String, String> headers = ctx.getZuulRequestHeaders();
+        String s = headers.get(AUTH_TOKEN);
+        return ctx.getZuulRequestHeaders().get(AUTH_TOKEN);
     }
 }

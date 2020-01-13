@@ -57,7 +57,7 @@ public class DefaultFallbackProvider implements FallbackProvider {
 
             @Override
             public InputStream getBody() throws IOException {
-                return new ByteArrayInputStream("falback".getBytes());
+                return new ByteArrayInputStream("fallback".getBytes());
             }
 
             @Override

@@ -3,7 +3,10 @@ package com.zjb.zuulservice.filters;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import com.zjb.zuulservice.config.ServiceConfig;
 import com.zjb.zuulservice.utils.FilterUtils;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +28,9 @@ public class TrackingFilter extends ZuulFilter {
 
     @Autowired
     private FilterUtils filterUtils;
+
+    @Autowired
+    private ServiceConfig serviceConfig;
 
 
     @Override
@@ -63,6 +69,25 @@ public class TrackingFilter extends ZuulFilter {
         }
         RequestContext ctx = RequestContext.getCurrentContext();
         logger.debug("Processing incoming request for {}.", ctx.getRequest().getRequestURI());
+        System.out.println(getOrganizationId());
         return null;
+    }
+
+    private String getOrganizationId() {
+        String result = "";
+        if (filterUtils.getAuthToken() != null) {
+            String authToken = filterUtils.getAuthToken().replace("Bearer", "");
+
+            try {
+                Claims claims = Jwts.parser()
+                        .setSigningKey(serviceConfig.getJwtSigningKey().getBytes())
+                        .parseClaimsJws(authToken)
+                        .getBody();
+                result = (String) claims.get("organizationId");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
     }
 }
