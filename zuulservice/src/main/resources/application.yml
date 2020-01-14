@@ -26,6 +26,7 @@ zuul:
 #      stripPrefix: false  #如果zuul了定义了全局的prefix，stripPrefix=false时，forward的URL将会带上prefix
     specialroutesservice: /special/**
     organizationservice: /organizationservice/**
+    ssoservice: /sso/**
 #  retryable: true # 请求失败时 Ribbon client自动重试
   ignored-services: '*' #除了routes下定义的服务，其他的全部忽略不解析
 #  ignored-patterns: /**/admin/**  # calls including /admin/ do not resolve.

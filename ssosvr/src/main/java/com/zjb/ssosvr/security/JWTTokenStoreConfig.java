@@ -9,7 +9,6 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
-import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 /**
  * Created by zjb on 2020/1/12.
@@ -32,7 +31,7 @@ public class JWTTokenStoreConfig {
 
     @Bean
     public TokenStore tokenStore() {
-        return new JwtTokenStore(jwtAccessTokenConverter());
+        return new JwtRedisTokenStore(jwtAccessTokenConverter());
     }
 
     //定义了令牌将如何被转换
